@@ -31,28 +31,28 @@ router.post("/", async (req, res, next) => {
 /* PUT /api/todo/:id */
 
 router.put("/:id", async (req, res, next) => {
-  const _id = req.params.id;
+  const id = req.params.id;
 	try {
-    const isTodoAvailable = await Todo.findOne({_id});
-		if (!isTodoAvailable) throw new Error("Can't update todo maybe the looking todo is not available");
-		const todo = await Todo.findByIdAndUpdate(_id, {...req.body.todo});
+    const isTodoAvailable = await Todo.findById(id);
+		if (!isTodoAvailable) throw new Error();
+		const todo = await Todo.findByIdAndUpdate(id, {...req.body.todo});
 		res.type("json").redirect("/api/todo");
   } catch (error) {
-		return next(error.message);
+		return next("Can't update todo maybe the looking todo is not available or id is not valid");
 	}
 });
 
 /* DELETE /api/todo/:id */
 
 router.delete("/:id", async (req, res, next) => {
-  const _id = req.params.id;
+  const id = req.params.id;
   try {
-    const isTodoAvailable = await Todo.findOne({_id});
-    if(!isTodoAvailable) throw new Error("Can't update todo maybe the looking todo is not available");
-    const todo = await Todo.findByIdAndDelete(_id);
+    const isTodoAvailable = await Todo.findById(id);
+    if(!isTodoAvailable) throw new Error();
+    const todo = await Todo.findByIdAndDelete(id);
     res.type("json").redirect("/api/todo");
   } catch (error) {
-    return next(error.message);
+    return next("Can't update todo maybe the looking todo is not available or id is not valid");
   }
 })
 
