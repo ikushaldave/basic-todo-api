@@ -2,6 +2,18 @@
 
 This is simple basic todo api can be used to `GET`, `POST`, `UPDATE`, `DELETE` a todo.
 
+To make the `POST`, `DELETE` and `PUT` operation you can use the following snippet. Changing the `method` to specific type of request.
+
+```js
+fetch(url, {
+    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data) // body data type must match "Content-Type" header
+  });
+```
+
 > Note - Don't pollute the API by posting some test data (like testingggg etc).
 
 BASE URL = `https://ac-todo-api.herokuapp.com/api/todo`
