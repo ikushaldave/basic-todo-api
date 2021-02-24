@@ -4,6 +4,8 @@ This is simple basic todo api can be used to `GET`, `POST`, `UPDATE`, `DELETE` a
 
 > Note - Don't pollute the API by posting some test data (like testingggg etc).
 
+BASE URL = `https://ac-todo-api.herokuapp.com/api/todo`
+
 ### Endpoints
 
 1. `GET` */api/todo*
@@ -12,14 +14,14 @@ returns a array of all todos with total number of todos
 
 2. `POST` */api/todo*
 
-the request body should be in following format
+the request body should be in following format (isCompleted default to false if you want to true add isCompleted to true)
 
 ```json
 {
   {
     "todo": {
       "title": "abc",
-      "isCompleted": true // (Default to false)
+      "isCompleted": true
     }
   }
 }
