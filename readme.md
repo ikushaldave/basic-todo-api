@@ -65,6 +65,8 @@ returns a response in array of todos in following format
 }
 ```
 
+**Colon `:` in /api/todo/:id stands for changing value. Like it can be anything. So insted of `:id` you can use any value.**
+
 3. `PUT` */api/todo/:id*
 
 To update a todo it required a id of todo you want to update
