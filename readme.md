@@ -75,10 +75,8 @@ and take similar format as post todo which you want to update
 
 ```json
 {
-  {
-    "todo": {
-      "title": "qwerty"
-    }
+  "todo": {
+    "title": "qwerty"
   }
 }
 ```
