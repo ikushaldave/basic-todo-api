@@ -30,11 +30,9 @@ the request body should be in following format (isCompleted default to false if 
 
 ```json
 {
-  {
-    "todo": {
-      "title": "abc",
-      "isCompleted": true
-    }
+  "todo": {
+    "title": "abc",
+    "isCompleted": true
   }
 }
 ```
