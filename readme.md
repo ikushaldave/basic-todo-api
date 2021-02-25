@@ -2,9 +2,21 @@
 
 This is simple basic todo api can be used to `GET`, `POST`, `UPDATE`, `DELETE` a todo.
 
+To make the `POST`, `DELETE` and `PUT` operation you can use the following snippet. Changing the `method` to specific type of request.
+
+```js
+fetch(url, {
+    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data) // body data type must match "Content-Type" header
+  });
+```
+
 > Note - Don't pollute the API by posting some test data (like testingggg etc).
 
-BASE URL = `https://ac-todo-api.herokuapp.com/api/todo`
+BASE URL = `https://sleepy-falls-37563.herokuapp.com/api/todo`
 
 ### Endpoints
 
@@ -12,7 +24,7 @@ BASE URL = `https://ac-todo-api.herokuapp.com/api/todo`
 
 To get all todo list
 
-> return [todos](returns)
+> return [todos](#returns)
 
 2. `POST /api/todo`
 
@@ -20,11 +32,9 @@ The request body should be in following format (isCompleted default to false if 
 
 ```js
 {
-  {
-    "todo": {
-      "title": "abc",
-      "isCompleted": true
-    }
+  "todo": {
+    "title": "abc",
+    "isCompleted": true
   }
 }
 ```
@@ -32,7 +42,6 @@ The request body should be in following format (isCompleted default to false if 
 > return [todos](#returns)
 
 Note - title should be minimum of length 2 and is required
-
 
 3. `PUT /api/todo/:id`
 
@@ -44,10 +53,8 @@ and take similar format as post todo which you want to update
 
 ```js
 {
-  {
-    "todo": {
-      "title": "qwerty"
-    }
+  "todo": {
+    "title": "qwerty"
   }
 }
 ```
