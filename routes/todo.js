@@ -22,7 +22,7 @@ router.get('/', async (req, res, next) => {
 router.post("/", async (req, res, next) => {
   try {
     const todo = await Todo.create({ ...req.body.todo })
-    res.type("json").redirect("/api/todo");
+    res.type("json").redirect(303, "/api/todo");
   } catch (error) {
     return next("title is required and minlength of title should be 2 and blank space on starting and end not count")
   }
@@ -36,7 +36,7 @@ router.put("/:id", async (req, res, next) => {
     const isTodoAvailable = await Todo.findById(id);
 		if (!isTodoAvailable) throw new Error();
 		const todo = await Todo.findByIdAndUpdate(id, {...req.body.todo});
-		res.type("json").redirect("/api/todo");
+		res.type("json").redirect(303, "/api/todo");
   } catch (error) {
 		return next("Can't update todo maybe the looking todo is not available or id is not valid");
 	}
@@ -50,7 +50,7 @@ router.delete("/:id", async (req, res, next) => {
     const isTodoAvailable = await Todo.findById(id);
     if(!isTodoAvailable) throw new Error();
     const todo = await Todo.findByIdAndDelete(id);
-    res.type("json").redirect("/api/todo");
+    res.type("json").redirect(303, "/api/todo");
   } catch (error) {
     return next("Can't update todo maybe the looking todo is not available or id is not valid");
   }
