@@ -19,7 +19,7 @@ mongoose.connect(process.env.DB_URL,
   console.log(err || `Connected to DB`)
 })
 
-var usersRouter = require('./routes/todo');
+var usersRouter = require('../routes/todo');
 
 var app = express();
 
