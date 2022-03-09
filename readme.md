@@ -16,7 +16,7 @@ fetch(url, {
 
 > Note - Don't pollute the API by posting some test data (like testingggg etc).
 
-BASE URL = `https://sleepy-falls-37563.herokuapp.com/api/todo`
+BASE URL = `https://basic-todo-api.vercel.app/api/todo`
 
 ### Endpoints
 
